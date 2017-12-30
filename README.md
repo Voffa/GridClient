@@ -11,7 +11,3 @@ and help to manage cross browser execution of automated.
 - Tests must be executed using Selenium Grid
 
 ## How to use:
-
-...
-
-
