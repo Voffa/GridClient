@@ -7,6 +7,8 @@ import com.gridhelper.api.model.hub.HubInfo;
 import com.gridhelper.api.model.session.GridSession;
 import com.gridhelper.api.model.status.Status;
 import com.gridhelper.api.service.GridService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ import java.util.Optional;
 
 public class GridClient {
 
+    private static final Logger LOG = LoggerFactory.getLogger(GridClient.class);
     private GridService gridService;
     private HubMap hubMap;
 
@@ -54,18 +57,19 @@ public class GridClient {
         if (optPort.isPresent()) {
             return hubMap.getBrowser(optPort.get());
         }
+        LOG.debug("All nodes are busy");
         return Browser.ALL_BUSY;
     }
 
-    public GridSession getSessionInfo(String sessionId){
+    public GridSession getSessionInfo(String sessionId) {
         return gridService.getSessionInfo(sessionId);
     }
 
-    public HubInfo getHubInfo(){
+    public HubInfo getHubInfo() {
         return gridService.getHubInfo();
     }
 
-    public Status getStatus(){
+    public Status getStatus() {
         return gridService.getStatus();
     }
 
@@ -78,6 +82,7 @@ public class GridClient {
         if (proxyTokens.length < 3) {
             throw new GridHelperException("Error on attempt to parse proxyId: " + proxyId);
         }
+        LOG.debug("The following client is in use: {}", proxyTokens[2]);
         return proxyTokens[2];
     }
 
