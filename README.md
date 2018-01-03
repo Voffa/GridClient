@@ -1,7 +1,7 @@
 # GridHelper
 
 **GridHelper** is simple API to interact with Selenium Grid, collect information about hub, nodes
-and help to manage cross browser execution of automated.
+and help to manage cross browser execution of automated test.
 
 ## Preconditions
 
@@ -11,3 +11,4 @@ and help to manage cross browser execution of automated.
 - Tests must be executed using Selenium Grid
 
 ## How to use:
+
