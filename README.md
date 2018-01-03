@@ -1,6 +1,6 @@
-# GridClient
+# GridHelper
 
-**GridClient** is simple API to interact with Selenium Grid, collect information about hub, nodes
+**GridHelper** is simple API to interact with Selenium Grid, collect information about hub, nodes
 and help to manage cross browser execution of automated.
 
 ## Preconditions
