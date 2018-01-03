@@ -3,8 +3,10 @@ package com.gridhelper.test;
 import com.gridhelper.api.GridClient;
 import com.gridhelper.api.model.Browser;
 import com.gridhelper.api.model.HubMap;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
+@Ignore
 public class TestGetFreeBrowser {
 
     private static final String URL = "http://localhost:4444";
@@ -18,5 +20,14 @@ public class TestGetFreeBrowser {
         GridClient gridClient = new GridClient(URL, hubMap);
         Browser browser = gridClient.getFreeBrowser();
         System.out.println(browser);
+    }
+
+    @Test
+    public void testTest(){
+        HubMap hubMap = new HubMap();
+        hubMap.addBrowserNode("4442", Browser.CHROME);
+        hubMap.addBrowserNode("4443", Browser.FIREFOX);
+        GridClient gridClient = new GridClient(URL, hubMap);
+
     }
 }
